@@ -1,0 +1,26 @@
+package com.BaseTest;
+
+public class BaseTest {
+	
+	public WebDriver driver;
+	String applicationUrlAddress="https://echoecho.com/htmlforms10.htm";
+
+	@BeforeTest
+	public void setUp()
+	{
+	System.setProperty("webdriver.chrome.driver", "./chromeBrowser/chromedriver.exe");
+
+	driver = new ChromeDriver();
+	driver.get(applicationUrlAddress);
+
+	driver.manage().window().maximize();
+
+	}
+
+
+	@AfterTest
+	public void tearDown()
+	{
+	driver.quit();
+	}
+}

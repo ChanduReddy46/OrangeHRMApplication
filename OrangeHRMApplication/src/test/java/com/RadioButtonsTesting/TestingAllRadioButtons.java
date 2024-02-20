@@ -1,0 +1,51 @@
+package com.RadioButtonsTesting;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.testng.annotations.Test;
+
+import com.BaseTest.BaseTest;
+
+public class TestingAllRadioButtons extends BaseTest{
+	
+	@Test
+	public void radioButtonsTesting() throws InterruptedException
+	{
+		
+		//<td class="table5"><!-- perl mysql php web host -->
+		///html/body/div[2]/table[9]/tbody/tr/td[4]/table/tbody/tr/td/div/span/form/table[3]/tbody/tr/td/table/tbody/tr/td
+        By tableProperty = By.xpath("/html/body/div[2]/table[9]/tbody/tr/td[4]/table/tbody/tr/td/div/span/form/table[3]/tbody/tr/td/table/tbody/tr/td");
+        WebElement table = driver.findElement(tableProperty); 
+
+
+		By radioButtonsproperty = By.tagName("input");
+		List<WebElement>radioButtons = table.findElements(radioButtonsproperty);
+		int radioButtons_Count = radioButtons.size();
+		System.out.println(radioButtons_Count);
+		
+        System.out.println(" The Number of Radio Buttons in group1 are : - " + radioButtons_Count);
+		
+		for(int radioButtonClick=0;radioButtonClick<radioButtons_Count;radioButtonClick++)
+		{
+			
+			String radioButtonName = radioButtons.get(radioButtonClick).getAttribute("value");
+			System.out.println(radioButtonName);
+			
+			radioButtons.get(radioButtonClick).click();
+			
+			Thread.sleep(5000);
+			
+			for(int radioButtonsStatus=0;radioButtonsStatus<radioButtons_Count;radioButtonsStatus++)
+			{
+			
+				System.out.println(radioButtons.get(radioButtonsStatus).getAttribute("value") + "-" + radioButtons.get(radioButtonsStatus).getAttribute("checked"));
+			}
+		}
+		
+	}
+	
+	
+
+}

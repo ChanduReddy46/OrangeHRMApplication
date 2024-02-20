@@ -1,0 +1,15 @@
+package com.BaseTest;
+
+public class BaseTest {
+	
+	public void setUp()
+	{
+		
+		WebDriver driver;
+		
+		String applicationUrlAddress = "https://echoecho.com/htmlforms10.htm";
+		
+		System.setProperty("webdriver.chrome.driver", "./")
+	}
+
+}

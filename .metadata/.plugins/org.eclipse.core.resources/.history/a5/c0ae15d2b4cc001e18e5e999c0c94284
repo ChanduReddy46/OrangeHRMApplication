@@ -1,0 +1,31 @@
+package com.RadioButtonsTesting;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.testng.annotations.Test;
+
+import com.BaseTest.BaseTest;
+
+public class TestingAllRadioButtons extends BaseTest{
+	
+	@Test
+	public void radioButtonsTesting()
+	{
+		
+		//<td class="table5"><!-- perl mysql php web host -->
+        By tableProperty = By.className("table5");
+        WebElement table = driver.findElement(tableProperty); 
+
+
+		By radioButtonsproperty = By.tagName("input");
+		List<WebElement>radioButtonsNames = table.findElements(radioButtonsproperty);
+		int radioButtonsNames_Count = radioButtonsNames.size();
+		System.out.println(radioButtonsNames_Count);
+		
+	}
+	
+	
+
+}
